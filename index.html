@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>札幌市東区 都市機能マップ</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Noto+Sans+JP:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div id="map"></div>
+
+    <div id="controls" class="glass-panel">
+        <div class="controls-header" onclick="toggleControls()">
+            <h2>設定</h2>
+            <span id="toggle-icon">▼</span>
+        </div>
+        <div class="controls-content" id="controls-content">
+            <div class="control-group">
+                <h3>表示切替 & 半径 (m)</h3>
+
+                <div class="control-item">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="subway-check" checked>
+                        <span class="color-indicator subway"></span>
+                        地下鉄
+                    </label>
+                    <input type="range" id="subway-radius" min="100" max="2000" step="100" value="800">
+                    <span class="radius-value" id="subway-val">800m</span>
+                </div>
+
+                <div class="control-item">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="aeon-check" checked>
+                        <span class="color-indicator aeon"></span>
+                        イオン
+                    </label>
+                    <input type="range" id="aeon-radius" min="100" max="3000" step="100" value="1500">
+                    <span class="radius-value" id="aeon-val">1500m</span>
+                </div>
+
+                <div class="control-item">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="maxvalu-check" checked>
+                        <span class="color-indicator maxvalu"></span>
+                        MaxValu
+                    </label>
+                    <input type="range" id="maxvalu-radius" min="100" max="2000" step="100" value="800">
+                    <span class="radius-value" id="maxvalu-val">800m</span>
+                </div>
+
+                <div class="control-item">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="tsuruha-check" checked>
+                        <span class="color-indicator tsuruha"></span>
+                        ツルハ
+                    </label>
+                    <input type="range" id="tsuruha-radius" min="100" max="1000" step="50" value="400">
+                    <span class="radius-value" id="tsuruha-val">400m</span>
+                </div>
+
+                <div class="control-item">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="junior_high-check" checked>
+                        <span class="color-indicator junior_high"></span>
+                        中学校
+                    </label>
+                    <input type="range" id="junior_high-radius" min="100" max="3000" step="100" value="1500">
+                    <span class="radius-value" id="junior_high-val">1500m</span>
+                </div>
+
+                <div class="control-item">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="elementary-check" checked>
+                        <span class="color-indicator elementary"></span>
+                        小学校
+                    </label>
+                    <input type="range" id="elementary-radius" min="100" max="2000" step="100" value="800">
+                    <span class="radius-value" id="elementary-val">800m</span>
+                </div>
+
+                <div class="control-item"
+                    style="margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px; display: flex; gap: 10px;">
+                    <button onclick="addFacility()" class="action-btn add-btn">
+                        ＋ 施設を追加
+                    </button>
+                    <button onclick="exportData()" class="action-btn export-btn">
+                        📍 保存（コピー）
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-overlay" class="modal-overlay hidden">
+        <div class="modal-content glass-panel">
+            <h3 id="modal-title">タイトル</h3>
+            <div id="modal-body">
+                <!-- Dynamic Content -->
+            </div>
+            <div class="modal-actions">
+                <button id="modal-cancel" class="modal-btn cancel-btn">キャンセル</button>
+                <button id="modal-confirm" class="modal-btn confirm-btn">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
