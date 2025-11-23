@@ -9,11 +9,11 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 // State management
 const state = {
     subway: { visible: true, radius: 800, color: '#ef4444', layerGroup: L.layerGroup().addTo(map) },
-    aeon: { visible: true, radius: 1500, color: '#8b5cf6', layerGroup: L.layerGroup().addTo(map) },
-    maxvalu: { visible: true, radius: 800, color: '#ec4899', layerGroup: L.layerGroup().addTo(map) },
-    tsuruha: { visible: true, radius: 400, color: '#f59e0b', layerGroup: L.layerGroup().addTo(map) },
-    junior_high: { visible: true, radius: 1500, color: '#10b981', layerGroup: L.layerGroup().addTo(map) },
-    elementary: { visible: true, radius: 800, color: '#059669', layerGroup: L.layerGroup().addTo(map) }
+    aeon: { visible: true, radius: 500, color: '#8b5cf6', layerGroup: L.layerGroup().addTo(map) },
+    maxvalu: { visible: true, radius: 500, color: '#ec4899', layerGroup: L.layerGroup().addTo(map) },
+    tsuruha: { visible: true, radius: 500, color: '#f59e0b', layerGroup: L.layerGroup().addTo(map) },
+    junior_high: { visible: true, radius: 800, color: '#10b981', layerGroup: L.layerGroup().addTo(map) },
+    elementary: { visible: true, radius: 600, color: '#059669', layerGroup: L.layerGroup().addTo(map) }
 };
 
 // Helper to create custom icon
@@ -282,3 +282,4 @@ window.deleteFacility = function (id) {
         }
     });
 };
+
